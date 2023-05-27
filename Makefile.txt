@@ -1,0 +1,13 @@
+all: a.out
+
+a.out: main.o lodepng.o
+	gcc  $^ -o $@
+
+main.o: main.c lodepng.h
+	gcc -c $< -o $@
+
+lodepng.o: lodepng.c lodepng.h
+	gcc -c $< -o $@
+
+clean:
+	rm -f *.o *.out
